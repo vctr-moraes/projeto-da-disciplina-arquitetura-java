@@ -9,3 +9,4 @@ Desenvolvimento de uma aplicação WEB API escrita em linguagem de programação
 * Projeto: Maven
 
 ### Diagrama de classes:
+![<alt-text>](<arquivos/Arquitetura java - diagrama de classes.png>)
