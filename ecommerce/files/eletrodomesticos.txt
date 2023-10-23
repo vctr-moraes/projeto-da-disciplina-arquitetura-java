@@ -1,0 +1,3 @@
+74923;microondas;microondas 32l brastemp;650.00;true;05/03/2023;24;E
+34536;misteira;misteira eletrolux;180.00;true;06/03/2023;24;E
+05455;cafeteira;cafeteira elétrica philco;120.00;true;10/03/2023;36;E
