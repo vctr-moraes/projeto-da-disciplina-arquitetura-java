@@ -1,4 +1,4 @@
-package model;
+package loader;
 
 import model.domain.Movel;
 import model.service.MovelService;
@@ -28,13 +28,14 @@ public class MovelLoader implements ApplicationRunner {
 
             Movel movel = new Movel();
 
-            movel.setCodigo(Integer.parseInt(campos[0]));
-            movel.setNome(String.valueOf(campos[1]));
-            movel.setDescricao(campos[2]);
-            movel.setPreco(Float.parseFloat(campos[3]));
-            movel.setEstoque(Boolean.parseBoolean(campos[4]));
-            movel.setDataCadastro(new Date(campos[5]));
-            movel.setTempoGarantia(Integer.parseInt(campos[6]));
+            movel.setId(Integer.parseInt(campos[0]));
+            movel.setCodigo(Integer.parseInt(campos[1]));
+            movel.setNome(String.valueOf(campos[2]));
+            movel.setDescricao(campos[3]);
+            movel.setPreco(Float.parseFloat(campos[4]));
+            movel.setEstoque(Boolean.parseBoolean(campos[5]));
+            movel.setDataCadastro(new Date(campos[6]));
+            movel.setTempoGarantia(Integer.parseInt(campos[7]));
 
             movelService.incluir(movel);
             linha = leitura.readLine();

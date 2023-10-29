@@ -1,4 +1,4 @@
-package model;
+package loader;
 
 import model.domain.Vendedor;
 import model.service.VendedorService;
@@ -31,9 +31,10 @@ public class VendedorLoader implements ApplicationRunner {
 
             Vendedor vendedor = new Vendedor();
 
-            vendedor.setNome(campos[0]);
-            vendedor.setDocumento(campos[1]);
-            vendedor.setEmail(campos[2]);
+            vendedor.setId(Integer.parseInt(campos[0]));
+            vendedor.setNome(campos[1]);
+            vendedor.setDocumento(campos[2]);
+            vendedor.setEmail(campos[3]);
 
             vendedorService.incluir(vendedor);
 

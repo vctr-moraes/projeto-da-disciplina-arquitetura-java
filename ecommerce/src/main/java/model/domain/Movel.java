@@ -1,5 +1,9 @@
 package model.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Moveis")
 public class Movel extends Produto {
     private String material;
     private String cor;

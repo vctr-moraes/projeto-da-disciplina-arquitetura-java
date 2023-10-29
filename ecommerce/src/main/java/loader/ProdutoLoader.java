@@ -1,16 +1,14 @@
-package model;
+package loader;
 
 import model.domain.Eletrodomestico;
 import model.domain.Movel;
 import model.domain.Produto;
 import model.service.ProdutoService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Date;
@@ -32,37 +30,33 @@ public class ProdutoLoader implements ApplicationRunner {
         while (linha != null) {
             campos = linha.split(";");
 
-            switch (campos[7]) {
-                case "A":
+            switch (campos[8]) {
+                case "A" -> {
                     Movel movel = new Movel();
-
-                    movel.setCodigo(Integer.parseInt(campos[0]));
-                    movel.setNome(String.valueOf(campos[1]));
-                    movel.setDescricao(campos[2]);
-                    movel.setPreco(Float.parseFloat(campos[3]));
-                    movel.setEstoque(Boolean.parseBoolean(campos[4]));
-                    movel.setDataCadastro(new Date(campos[5]));
-                    movel.setTempoGarantia(Integer.parseInt(campos[6]));
-
+                    movel.setId(Integer.parseInt(campos[0]));
+                    movel.setCodigo(Integer.parseInt(campos[1]));
+                    movel.setNome(String.valueOf(campos[2]));
+                    movel.setDescricao(campos[3]);
+                    movel.setPreco(Float.parseFloat(campos[4]));
+                    movel.setEstoque(Boolean.parseBoolean(campos[5]));
+                    movel.setDataCadastro(new Date(campos[6]));
+                    movel.setTempoGarantia(Integer.parseInt(campos[7]));
                     produtoService.incluir(movel);
-                    break;
-
-                case "E":
+                }
+                case "E" -> {
                     Eletrodomestico eletrodomestico = new Eletrodomestico();
-
-                    eletrodomestico.setCodigo(Integer.parseInt(campos[0]));
-                    eletrodomestico.setNome(campos[1]);
-                    eletrodomestico.setDescricao(campos[2]);
-                    eletrodomestico.setPreco(Float.parseFloat(campos[3]));
-                    eletrodomestico.setEstoque(Boolean.parseBoolean(campos[4]));
-                    eletrodomestico.setDataCadastro(new Date(campos[5]));
-                    eletrodomestico.setTempoGarantia(Integer.parseInt(campos[6]));
-
+                    eletrodomestico.setId(Integer.parseInt(campos[0]));
+                    eletrodomestico.setCodigo(Integer.parseInt(campos[1]));
+                    eletrodomestico.setNome(campos[2]);
+                    eletrodomestico.setDescricao(campos[3]);
+                    eletrodomestico.setPreco(Float.parseFloat(campos[4]));
+                    eletrodomestico.setEstoque(Boolean.parseBoolean(campos[5]));
+                    eletrodomestico.setDataCadastro(new Date(campos[6]));
+                    eletrodomestico.setTempoGarantia(Integer.parseInt(campos[7]));
                     produtoService.incluir(eletrodomestico);
-                    break;
-
-                default:
-                    break;
+                }
+                default -> {
+                }
             }
 
             linha = leitura.readLine();

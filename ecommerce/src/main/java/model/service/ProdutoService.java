@@ -1,22 +1,21 @@
 package model.service;
 
 import model.domain.Produto;
-
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import model.repository.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProdutoService {
-    private Map<Integer, Produto> produtoMap = new HashMap<Integer, Produto>();
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
     public void incluir(Produto produto) {
-        produtoMap.put(produto.getCodigo(), produto);
+        produtoRepository.save(produto);
     }
 
     public Collection<Produto> listar(){
-        return produtoMap.values();
+        return (Collection<Produto>) produtoRepository.findAll();
     }
 }

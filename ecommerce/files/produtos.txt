@@ -1,6 +1,6 @@
-67545;roupeiro;roupeiro casal 6 portas;800.00;true;10/01/2023;12;M
-74745;sofá;sofá 3 lugares com molas;950.00;true;10/01/2023;12;M
-09856;rack;rack sala para tv até 60 polegadas;700.00;false;11/01/2023;24;M
-74923;geladeira;geladeira eletrolux 400l;2500.00;true;13/01/2023;36;E
-44766;fogão;fogão 5 bocas brastemp;1300.00;false;13/01/2023;24;E
-64634;lavadora;lavadora 15kg consul;1800.00;true;14/01/2023;36;E
+1;67545;roupeiro;roupeiro casal 6 portas;800.00;true;10/01/2023;12;M
+2;74745;sofá;sofá 3 lugares com molas;950.00;true;10/01/2023;12;M
+3;09856;rack;rack sala para tv até 60 polegadas;700.00;false;11/01/2023;24;M
+4;74923;geladeira;geladeira eletrolux 400l;2500.00;true;13/01/2023;36;E
+5;44766;fogão;fogão 5 bocas brastemp;1300.00;false;13/01/2023;24;E
+6;64634;lavadora;lavadora 15kg consul;1800.00;true;14/01/2023;36;E

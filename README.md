@@ -7,6 +7,7 @@ Desenvolvimento de uma aplicação WEB API escrita em linguagem de programação
 * Framework: Spring
 * Versão do Spring: 2.7.17
 * Projeto: Maven
+* Banco de dados: SQLServer
 
 ### Diagrama de classes:
 ![<alt-text>](<arquivos/Arquitetura java - diagrama de classes.png>)

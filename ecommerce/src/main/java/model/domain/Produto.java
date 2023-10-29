@@ -1,8 +1,15 @@
 package model.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "Produtos")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Produto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private int codigo;
     private String nome;
     private String descricao;
@@ -10,10 +17,21 @@ public class Produto {
     private boolean estoque;
     private Date dataCadastro;
     private int tempoGarantia;
+    @ManyToOne
+    @JoinColumn(name = "vendedorId")
+    private Vendedor vendedor;
 
     @Override
     public String toString() {
         return String.format("%d - %s - %.2f - %s", codigo, nome, preco, dataCadastro);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getCodigo() {
@@ -70,5 +88,13 @@ public class Produto {
 
     public void setTempoGarantia(int tempoGarantia) {
         this.tempoGarantia = tempoGarantia;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
     }
 }

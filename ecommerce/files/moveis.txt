@@ -1,3 +1,3 @@
-25365;mesa escritório;mesa para escritório 1.80;300.00;false;20/02/2023;0;M
-64564;mesa de jantar;mesa de jantar 6 cadeiras;1150.00;true;11/02/2023;6;M
-65716;armário;armário para cozinha 8 portas;1230.00;true;25/02/2023;12;M
+1;67545;roupeiro;roupeiro casal 6 portas;800.00;true;10/01/2023;12;M
+2;74745;sofá;sofá 3 lugares com molas;950.00;true;10/01/2023;12;M
+3;09856;rack;rack sala para tv até 60 polegadas;700.00;false;11/01/2023;24;M

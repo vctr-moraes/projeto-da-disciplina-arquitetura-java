@@ -1,22 +1,21 @@
 package model.service;
 
 import model.domain.Eletrodomestico;
-
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import model.repository.EletrodomesticoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EletrodomesticoService {
-    private Map<Integer, Eletrodomestico> eletrodomesticoMap = new HashMap<Integer, Eletrodomestico>();
+    @Autowired
+    private EletrodomesticoRepository eletrodomesticoRepository;
 
     public void incluir(Eletrodomestico eletrodomestico) {
-        eletrodomesticoMap.put(eletrodomestico.getCodigo(), eletrodomestico);
+        eletrodomesticoRepository.save(eletrodomestico);
     }
 
     public Collection<Eletrodomestico> listar(){
-        return eletrodomesticoMap.values();
+        return (Collection<Eletrodomestico>) eletrodomesticoRepository.findAll();
     }
 }

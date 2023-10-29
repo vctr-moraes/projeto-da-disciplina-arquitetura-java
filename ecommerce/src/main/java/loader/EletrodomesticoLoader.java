@@ -1,4 +1,4 @@
-package model;
+package loader;
 
 import model.domain.Eletrodomestico;
 import model.service.EletrodomesticoService;
@@ -28,13 +28,14 @@ public class EletrodomesticoLoader implements ApplicationRunner {
 
             Eletrodomestico eletrodomestico = new Eletrodomestico();
 
-            eletrodomestico.setCodigo(Integer.parseInt(campos[0]));
-            eletrodomestico.setNome(campos[1]);
-            eletrodomestico.setDescricao(campos[2]);
-            eletrodomestico.setPreco(Float.parseFloat(campos[3]));
-            eletrodomestico.setEstoque(Boolean.parseBoolean(campos[4]));
-            eletrodomestico.setDataCadastro(new Date(campos[5]));
-            eletrodomestico.setTempoGarantia(Integer.parseInt(campos[6]));
+            eletrodomestico.setId(Integer.parseInt(campos[0]));
+            eletrodomestico.setCodigo(Integer.parseInt(campos[1]));
+            eletrodomestico.setNome(campos[2]);
+            eletrodomestico.setDescricao(campos[3]);
+            eletrodomestico.setPreco(Float.parseFloat(campos[4]));
+            eletrodomestico.setEstoque(Boolean.parseBoolean(campos[5]));
+            eletrodomestico.setDataCadastro(new Date(campos[6]));
+            eletrodomestico.setTempoGarantia(Integer.parseInt(campos[7]));
 
             eletrodomesticoService.incluir(eletrodomestico);
             linha = leitura.readLine();
