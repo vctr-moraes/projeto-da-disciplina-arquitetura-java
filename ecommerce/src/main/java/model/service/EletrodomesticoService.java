@@ -1,8 +1,8 @@
 package model.service;
 
 import model.domain.Eletrodomestico;
-import java.util.Collection;
 import model.repository.EletrodomesticoRepository;
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +17,9 @@ public class EletrodomesticoService {
 
     public Collection<Eletrodomestico> listar(){
         return (Collection<Eletrodomestico>) eletrodomesticoRepository.findAll();
+    }
+
+    public long obterQtde() {
+        return eletrodomesticoRepository.count();
     }
 }

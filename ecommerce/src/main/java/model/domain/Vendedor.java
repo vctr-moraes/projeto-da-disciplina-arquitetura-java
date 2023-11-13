@@ -2,24 +2,49 @@ package model.domain;
 
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "Vendedores")
+@Table(name = "Vendedores", uniqueConstraints = {
+        @UniqueConstraint(columnNames = { "documento" }),
+        @UniqueConstraint(columnNames = { "email" })
+})
+
 public class Vendedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+	@PositiveOrZero
     private int codigo;
+
+    @Size(min = 2, max = 50)
     private String nome;
+
+    @Column(unique = true)
     private String documento;
+
+    @Column(unique = true)
     private String email;
-    @OneToMany
-    @JoinColumn(name = "vendedorId")
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "EnderecoId")
+    private Endereco endereco;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "VendedorId")
     private List<Produto> produtos;
 
     @Override
     public String toString() {
-        return String.format("%d - %s - %s - %s", codigo, nome, documento, email);
+        return String.format("id (%d) - nome (%s) - documento (%s) - email (%s) - endereco (%s) - produtos (%d)",
+                id,
+                nome,
+                documento,
+                email,
+                endereco,
+                produtos != null ? produtos.size() : 0);
     }
 
     public Integer getId() {
@@ -68,5 +93,13 @@ public class Vendedor {
 
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }

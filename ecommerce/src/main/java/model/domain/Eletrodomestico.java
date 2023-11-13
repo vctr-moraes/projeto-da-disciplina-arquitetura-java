@@ -1,11 +1,15 @@
 package model.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Eletrodomesticos")
 public class Eletrodomestico extends Produto {
+	@Size(min = 2, max = 50, message = "O campo deve ter entre {min} e {max} caracteres.")
     private String tensao;
+    
+	@Size(min = 2, max = 50, message = "O campo deve ter entre {min} e {max} caracteres.")
     private String cor;
 
     @Override

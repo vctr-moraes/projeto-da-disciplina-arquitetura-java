@@ -1,8 +1,8 @@
 package model.service;
 
 import model.domain.Movel;
-import java.util.Collection;
 import model.repository.MovelRepository;
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +17,9 @@ public class MovelService {
 
     public Collection<Movel> listar(){
         return (Collection<Movel>) movelRepository.findAll();
+    }
+
+    public long obterQtde() {
+        return movelRepository.count();
     }
 }

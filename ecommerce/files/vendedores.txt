@@ -1,3 +1,3 @@
-1;Atacadista São Paulo;01.601.234/0001-57;atacadistasp@gmail.com
-2;Brastemp S/A;36.458.172/0001-50;vendas@brastemp.com.br
-3;Tabajara Importações;46.010.688/0001-91;taba_importacoes@hotmail.com
+Atacadista São Paulo;01.601.234/0001-57;atacadistasp@gmail.com,29500000
+Brastemp S/A;36.458.172/0001-50;vendas@brastemp.com.br,29520000
+Tabajara Importações;46.010.688/0001-91;taba_importacoes@hotmail.com,29555000

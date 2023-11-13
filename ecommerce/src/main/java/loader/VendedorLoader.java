@@ -1,14 +1,15 @@
 package loader;
 
 import model.domain.Vendedor;
+import model.domain.Endereco;
 import model.service.VendedorService;
-
+import javax.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
+import extensions.FileLogger;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
@@ -31,12 +32,16 @@ public class VendedorLoader implements ApplicationRunner {
 
             Vendedor vendedor = new Vendedor();
 
-            vendedor.setId(Integer.parseInt(campos[0]));
-            vendedor.setNome(campos[1]);
-            vendedor.setDocumento(campos[2]);
-            vendedor.setEmail(campos[3]);
+            vendedor.setNome(campos[0]);
+            vendedor.setDocumento(campos[1]);
+            vendedor.setEmail(campos[2]);
+            vendedor.setEndereco(new Endereco(campos[3]));
 
-            vendedorService.incluir(vendedor);
+            try {
+                vendedorService.incluir(vendedor);
+            } catch (ConstraintViolationException e) {
+                FileLogger.logException("[VENDEDOR] " + vendedor + " - " + e.getMessage());
+            }
 
             linha = leitura.readLine();
         }

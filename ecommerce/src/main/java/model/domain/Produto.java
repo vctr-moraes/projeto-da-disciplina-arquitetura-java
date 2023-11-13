@@ -1,6 +1,9 @@
 package model.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -10,20 +13,39 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @PositiveOrZero
     private int codigo;
+
+    @Size(min = 2, max = 50)
     private String nome;
+
     private String descricao;
+
+    @Positive
     private float preco;
+
+    @PositiveOrZero
     private boolean estoque;
+
     private Date dataCadastro;
+
+    @PositiveOrZero
     private int tempoGarantia;
+
     @ManyToOne
     @JoinColumn(name = "vendedorId")
     private Vendedor vendedor;
 
     @Override
     public String toString() {
-        return String.format("%d - %s - %.2f - %s", codigo, nome, preco, dataCadastro);
+        return String.format("id (%d) - descricao (%s) - codigo (%d) - preco (%.2f) - estoque (%s) - vendedor [%s]",
+                id,
+                descricao,
+                codigo,
+                preco,
+                estoque,
+                vendedor);
     }
 
     public Integer getId() {
