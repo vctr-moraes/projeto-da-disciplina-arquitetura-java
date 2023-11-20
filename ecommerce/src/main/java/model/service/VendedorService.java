@@ -6,6 +6,7 @@ import model.domain.Endereco;
 import clients.IEnderecoClient;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,7 +24,7 @@ public class VendedorService {
     }
 
     public Collection<Vendedor> listar(){
-        return (Collection<Vendedor>) vendedorRepository.findAll();
+        return (Collection<Vendedor>) vendedorRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
     }
 
     public void excluir(Integer id) {
@@ -32,5 +33,9 @@ public class VendedorService {
 
     public long obterQtde() {
         return vendedorRepository.count();
+    }
+
+    public Vendedor pesquisar(String cpf) {
+        return vendedorRepository.findByCpf(cpf);
     }
 }

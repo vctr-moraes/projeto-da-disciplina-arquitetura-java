@@ -32,7 +32,7 @@ public class Vendedor {
     @JoinColumn(name = "EnderecoId")
     private Endereco endereco;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "VendedorId")
     private List<Produto> produtos;
 

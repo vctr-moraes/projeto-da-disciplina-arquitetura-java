@@ -29,18 +29,24 @@
                             <a class="nav-link" href="/eletrodomestico/lista">Eletrodomésticos</a>
                         </li>
                     </ul>
+                    <c:if test="${not empty listagem}">
+                        <form class="d-flex" action="/${rota}/pesquisar">
+                            <input class="form-control me-2" type="text" name="campoBusca" placeholder="Search">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </form>
+                    </c:if>
                 </div>
             </nav>
 
             <div class="container mt-3">
-                <span class="badge rounded-pill bg-primary">Vendedor: ${qtdeVendedor}</span>
+<span class="badge rounded-pill bg-primary">Vendedor: ${qtdeVendedor}</span>
                 <span class="badge rounded-pill bg-secondary">Produto: ${qtdeProduto}</span>
                 <span class="badge rounded-pill bg-success">Móvel: ${qtdeMovel}</span>
                 <span class="badge rounded-pill bg-danger">Eletrodoméstico: ${qtdeEletrodomestico}</span>
 
                 <c:if test="${not empty listagem}">
                     <h2>AppVenda</h2>
-                    <p>Gest�o de vendas de produtos:</p>
+                    <p>Gestão de vendas de produtos:</p>
                     <table class="table">
                         <thead class="table-dark">
                             <tr>
@@ -57,6 +63,49 @@
                             </c:forEach>
                         </tbody>
                     </table>
+                </c:if>
+
+                <c:if test="${empty listagem}">
+                    <hr>
+                    <form action="/informacao/incluir" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Entre com o campo" name="campo">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Entre com a descrição"
+                                    name="descricao">
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary" type="submit">Cadastrar</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <c:if test="${not empty informacoes}">
+                        <hr>
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Informações:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="item" items="${informacoes}">
+                                    <tr>
+                                        <td>${item}</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:if>
+                </c:if>
+
+                <c:if test="${not empty objeto}">
+                    <hr>
+                    <div class="alert alert-success">
+                        <strong>Sucesso!</strong> ${objeto}
+                    </div>
                 </c:if>
             </div>
         </body>

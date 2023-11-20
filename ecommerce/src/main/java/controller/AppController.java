@@ -1,9 +1,6 @@
 package controller;
 
-import model.service.MovelService;
-import model.service.EletrodomesticoService;
-import model.service.ProdutoService;
-import model.service.VendedorService;
+import model.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,8 +20,12 @@ public class AppController {
     @Autowired
     private EletrodomesticoService eletrodomesticoService;
 
+    @Autowired
+    private InformacaoService informacaoService;
+
     @GetMapping(value = "/")
     public String showHome(Model model) {
+        model.addAttribute("informacoes", informacaoService.listar());
         model.addAttribute("qtdeVendedor", vendedorService.obterQtde());
         model.addAttribute("qtdeProduto", produtoService.obterQtde());
         model.addAttribute("qtdeMovel", movelService.obterQtde());
