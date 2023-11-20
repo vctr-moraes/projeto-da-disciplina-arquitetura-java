@@ -12,6 +12,4 @@ Desenvolvimento de uma aplicação WEB API escrita em linguagem de programação
 ### Diagrama de classes:
 ![<alt-text>](<arquivos/Arquitetura java - diagrama de classes.png>)
 
-### Acesso ao projeto #2
-<a href="https://github.com/vctr-moraes/projeto-da-disciplina-arquitetura-java-api" target="_blank">Projeto #2</a>
---
+### Acesso ao <a href="https://github.com/vctr-moraes/projeto-da-disciplina-arquitetura-java-api" target="_blank">Projeto #2</a>
